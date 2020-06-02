@@ -41,13 +41,13 @@ tlist = [t]
 while t<=tmax:
     def rhs1(p1,e1,y1,p2):  #Definiton Rechtehandseite Beutepopulation
         return p1*(e1-y1*p2)
-    def rhs2(p2,e2,y2,p1):  #Defintion Rechtehanseite Räuberpopulation
-        return (-p2)*(e2-y2*p1)
+    def rhs2(p2,e2,y2,p1new):  #Defintion Rechtehanseite Räuberpopulation
+        return (-p2)*(e2-y2*p1new)
     
     p1new = rungekutta(rhs1,p1,[e1,y1,p2],h)
     p1list.append(p1new)
     
-    p2new = rungekutta(rhs2,p2,[e2,y2,p1],h)
+    p2new = rungekutta(rhs2,p2,[e2,y2,p1new],h)
     p2list.append(p2new)
     
     
